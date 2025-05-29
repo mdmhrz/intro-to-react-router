@@ -3,32 +3,21 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
+import Home from './components/Home/Home.jsx'
+import Root from './components/Root/Root.jsx'
+import Mobiles from './components/Mobiles/Mobiles.jsx'
+import Laptops from './components/Laptops/Laptops.jsx'
 
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element: <div>Welcome to React Router World</div>
-  },
-  {
-    path: 'about',
-    element: <div>This is for about</div>
-  },
-  {
-    path: 'blogs',
-    element: <div>All my blogs are here</div>
-  },
-  {
-    path: 'contacts',
-    element: <h1>All my contacts are here</h1>
-  },
-  {
-    path: 'app',
-    Component: App
-  },
-  {
-    path: 'app2',
-    element: <App></App>
+    Component: Root,
+    children: [
+      {index:true, Component:Home},
+      {path: 'mobiles', Component:Mobiles},
+      {path: 'laptops', Component:Laptops}
+    ]
   }
 ])
 
