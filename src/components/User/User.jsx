@@ -1,11 +1,13 @@
 import React, { Suspense, useState } from 'react';
-import { Link, Navigate } from 'react-router';
+import { Link, Navigate, useLocation } from 'react-router';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 
 const User = ({ user }) => {
 
     const [showInfo, setShowInfo] = useState(false);
     const [visitHome, setVisitHome] = useState(false);
+    const location = useLocation();
+    // console.log(location);
 
     const { id, name, email, phone } = user;
 
